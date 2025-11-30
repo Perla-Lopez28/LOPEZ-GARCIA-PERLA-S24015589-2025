@@ -1,0 +1,33 @@
+import java.util.Scanner;
+class Sueldo{
+    public static void main(String[] args){
+        Scanner miguelb = new Scanner(System.in);
+        System.out.print("\t=== SUELDOS ===");
+ 
+        double[][] sueldos = new double[4][3];
+        double[] totales = new double[4];
+        String[] nombres = new String[4];
+        
+        for(int i=0; i<4; i++){
+            System.out.print("\nIngrese el nombre del empleado " + (i+1) + ": ");
+            nombres[i] = miguelb.nextLine();
+            for(int j=0; j<3; j++){
+                System.out.print("Ingrese el sueldo del mes " + (j+1) + ": ");
+                sueldos[i][j] = miguelb.nextDouble();
+                totales[i] += sueldos[i][j];
+            }
+     
+        }
+        // Resultados.
+            System.out.println("\t=== RESUTADOS ===");
+            System.out.printf("| Empleado |  Mes 1   |   Mes 2   |   Mes 3   |   Total   |");
+            System.out.println("\n---------------------------------------------------------");
+            for(int i=0; i<4; i++){
+                System.out.printf("|%-8s|",nombres[i]);
+                for(int j=0; j<3; j++){
+                    System.out.printf("  %.2f  |", sueldos[i][j]);
+                }
+                System.out.printf("  %.2f  |\n", totales[i]);
+           
+    }
+}
